@@ -1,0 +1,111 @@
+/* My CSS */
+ 
+.App{
+  display: grid;
+  grid-auto-rows: minmax(500px, auto);
+  grid-auto-columns: minmax(100%, auto);
+  
+}
+
+.card{
+  background-color: white;
+  color: #ffffff;
+  display: grid;
+  grid-template-rows: 60% 40%;
+  color: black;
+  width: inherit;
+  min-height: 300px;
+  max-height: auto;
+  justify-items: start;
+}
+
+.me{
+  display: grid;
+  grid-template-columns: 10% 70% 20%
+}
+
+.picture{
+  height: 100%;
+  width: 100%
+}
+
+.cardText{
+  padding-left: 1em;
+  padding-right: 1em;
+  margin-top: -1em
+}
+
+h4{
+  line-height: 0px;
+  color: rgb(59, 182, 223);
+}
+
+@media screen and (max-width: 768px) {
+  .card{
+    width: 110%;
+    justify-self: center
+  }
+  .me{
+    grid-template-columns:  90% 10%
+  }
+}
+
+@media screen and (max-width: 1024px){
+
+  .cardContainer{
+    grid-template-columns: 1fr 1fr;
+  }
+  .card{
+    grid-template-rows: 50% 50%;
+    font-size: 15px;
+  }
+
+  .me{
+    grid-template-columns: 10% 70% 20%
+  }
+}
+
+
+  .cardHovers{
+    display: none
+  }
+  
+  .card:hover{
+    grid-template-rows: 30% 70%;
+  }
+  
+  
+  .card:hover p {
+    display: block;
+  }
+
+.cardBody{
+  background: #ddd;
+  display: grid;
+  grid-template-columns: 13% 79% 8%;
+}
+
+.arrowCircleRight{
+  background-color: white;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  margin-top: 50%;
+  /* float: right; */
+  /* margin-right: 25px !important */
+ }
+.arrowCircleLeft{
+  background-color: white;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  margin-top: 50%;
+  /* padding-left: 25px */
+}
+
+.arrow{
+  height: 20px;
+  width: 20px;
+  padding-top: 5px;
+  padding-left: 5px;
+}
