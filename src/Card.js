@@ -2,6 +2,8 @@ import React from 'react'
 import AliceCarousel from 'react-alice-carousel'
 import 'react-alice-carousel/lib/alice-carousel.css'
 import './App.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 class CardCom extends React.Component {
   constructor(){
@@ -43,19 +45,21 @@ class CardCom extends React.Component {
 
   render(){
     return (
-      <div className="me">
-        <div></div>
-        <div className="card">
-          <div className="cardPicture">
-            <img className="picture" src={require(`../public/Images/${this.state.card[this.props.value].cardPic}.jpg`)} alt="" />
-          </div>
-          <div className="cardText">
-            <h3>{this.state.card[this.props.value].cardHeading1}</h3>
-            <h4>{this.state.card[this.props.value].cardHeading2}</h4>
-            <p className="cardHovers">{this.state.card[this.props.value].cardContent}</p>
-          </div>
+      <div className="card">
+        <div>
+          <img className="cardPicture" src={require(`../public/Images/${this.state.card[this.props.value].cardPic}.jpg`)} alt="" />
         </div>
-        <div></div>
+        <div>
+          <h2 className="text-dec">Z NYC Hotel...</h2>
+          <h3 className="text-dec1">Long Island City</h3>
+          <div className="cardPadding"></div>
+          <h4 className="text-dec2">Birmingham(BHX)</h4>
+          <h4 className="text-dec2">New York John F Kennedy(JFK)</h4>
+          <div className="cardPadding"></div>
+          <p className="text-dec3">27 Nov 2019 - 13 Dec 2019</p>
+          <div className="hr-sect">Only</div>
+          <h2 className="cardPrice">$779<span className="cardPrice2">pp</span></h2>
+        </div>
       </div>
     )
   } 
@@ -105,13 +109,17 @@ class Card extends React.Component {
     this.setState({ itemsInSlide, currentIndex: item })
   }
 
+  slideNext = () => this.setState({ currentIndex: this.state.currentIndex + 1 })
+ 
+  slidePrev = () => this.setState({ currentIndex: this.state.currentIndex - 1 })
+
  
   render() {
     const { currentIndex, galleryItems, responsive } = this.state
  
     return (
         <div className="cardBody">
-          <div></div>
+          <a onClick={() => this.slidePrev()} href="Javascript:Void(0)" className="cardIcon"><div><FontAwesomeIcon  className="carouselIcons1" icon={faChevronLeft}  size="2x" color="#00356f"/></div></a>
           <AliceCarousel
             items={galleryItems}
             slideToIndex={currentIndex}
@@ -119,8 +127,10 @@ class Card extends React.Component {
             onInitialized={this.handleOnSlideChange}
             onSlideChanged={this.handleOnSlideChange}
             onResized={this.handleOnSlideChange}
+            buttonsDisabled={true}
+            dotsDisabled={true}
           />
-          <div></div>
+          <a onClick={() => this.slideNext()} href="Javascript:Void(0)" className="cardIcon"><div onClick={() => this.slideNext()}><FontAwesomeIcon  className="carouselIcons2" icon={faChevronRight} size="2x" color="#00356f" /></div></a>
         </div>
     )
   }
